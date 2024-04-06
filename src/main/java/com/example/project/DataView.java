@@ -21,7 +21,7 @@ public class DataView extends JFrame {
     }
 
     public static void main(String[] args) {
-        // Prompt user for category names and values
+        
         String[] categories = new String[3];
         double[] values = new double[3];
 
@@ -31,7 +31,7 @@ public class DataView extends JFrame {
             values[i] = Double.parseDouble(valueInput);
         }
 
-        // Create a bar chart
+        // bar chart
         DefaultCategoryDataset barDataset = new DefaultCategoryDataset();
         for (int i = 0; i < 3; i++) {
             barDataset.addValue(values[i], "Category", categories[i]);
@@ -43,7 +43,7 @@ public class DataView extends JFrame {
                 barDataset
         );
 
-        // Create a pie chart
+        // pie chart
         DefaultPieDataset pieDataset = new DefaultPieDataset();
         for (int i = 0; i < 3; i++) {
             pieDataset.setValue(categories[i], values[i]);
@@ -56,7 +56,7 @@ public class DataView extends JFrame {
                 false
         );
 
-        // Create a line chart
+        // line chart
         XYSeries lineSeries = new XYSeries("Line Chart Data");
         for (int i = 0; i < 3; i++) {
             lineSeries.add(i + 1, values[i]);
@@ -73,13 +73,13 @@ public class DataView extends JFrame {
                 false
         );
 
-        // Display all charts in the frame side by side
+        //all charts 
         JPanel chartPanel = new JPanel(new GridLayout(1, 3));
         chartPanel.add(new ChartPanel(barChart));
         chartPanel.add(new ChartPanel(pieChart));
         chartPanel.add(new ChartPanel(lineChart));
 
-        // Create and configure the frame
+        // frame
         DataView project = new DataView("Data Visualization Project");
         project.setContentPane(chartPanel);
         project.setSize(1200, 600);
